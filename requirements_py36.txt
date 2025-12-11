@@ -1,0 +1,23 @@
+# GUI Framework - 使用兼容Python 3.6的版本
+kivy==2.0.0
+kivymd==0.104.2
+
+# AI and Machine Learning - 使用兼容版本
+torch==1.8.1+cpu
+torchaudio==0.8.1
+numpy==1.19.5
+
+# Audio Processing - 使用兼容版本
+librosa==0.8.1
+soundfile==0.10.3
+pydub==0.25.1
+
+# Utilities - 使用兼容版本
+pyyaml==5.4.1
+pillow==8.3.2
+requests==2.26.0
+
+# Development tools
+black==21.12b0
+flake8==3.9.2
+pytest==6.2.5
