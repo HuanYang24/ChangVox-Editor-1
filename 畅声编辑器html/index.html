@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畅声 - 虚拟歌声编辑器</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="assets/sample_data.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">畅声编辑器</div>
+        <div class="menu">
+            <div class="menu-item">文件</div>
+            <div class="menu-item">编辑</div>
+            <div class="menu-item">视图</div>
+            <div class="menu-item">工具</div>
+            <div class="menu-item">帮助</div>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div class="left-panel">
+            <div class="panel-title">项目</div>
+            <div class="control-group">
+                <button class="button secondary">加载声库</button>
+            </div>
+            <div class="control-group">
+                <button class="button secondary">添加音轨</button>
+            </div>
+            
+            <div class="panel-title">声库</div>
+            <div class="control-group">
+                <select class="dropdown">
+                    <option>未选择声库</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="center-panel">
+            <div class="top-bar">
+                <div class="transport-controls">
+                    <div class="transport-btn">⏮️</div>
+                    <div class="transport-btn play">▶️</div>
+                    <div class="transport-btn">⏸️</div>
+                    <div class="transport-btn">⏹️</div>
+                    <div class="transport-btn">⏭️</div>
+                </div>
+                <div class="time-display">0:00 / 0:00</div>
+                
+                <div style="margin-left: auto; display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 12px; color: var(--text-secondary);">速度</span>
+                    <input type="number" value="120" min="40" max="200" style="width: 60px; padding: 4px; background-color: var(--panel-bg); border: 1px solid var(--border-color); border-radius: 4px; color: var(--text-primary);">
+                    
+                    <span style="font-size: 12px; color: var(--text-secondary);">拍号</span>
+                    <select class="dropdown" style="width: 80px;">
+                        <option>4/4</option>
+                        <option>3/4</option>
+                        <option>6/8</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="measure-marks">
+                    <div style="margin-bottom: 40px;">1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="piano-roll">
+                        <div class="piano-keys">
+                            <div class="key">C5</div>
+                            <div class="key">B4</div>
+                            <div class="key">A#4</div>
+                            <div class="key">A4</div>
+                            <div class="key">G#4</div>
+                            <div class="key">G4</div>
+                            <div class="key">F#4</div>
+                            <div class="key">F4</div>
+                            <div class="key">E4</div>
+                            <div class="key">D#4</div>
+                            <div class="key">D4</div>
+                            <div class="key">C#4</div>
+                            <div class="key">C4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <div class="panel-section">
+                <div class="panel-title">歌手</div>
+                <div class="control-group">
+                    <label class="control-label">当前声库</label>
+                    <select class="dropdown">
+                        <option>(未设定)</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">声库版本</label>
+                    <select class="dropdown">
+                        <option>没有加载声库</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <button class="button">加载声库</button>
+                </div>
+            </div>
+            
+            <div class="panel-section">
+                <div class="panel-title">语音</div>
+                <div class="control-group">
+                    <label class="control-label">使用以下语音语言</label>
+                    <select class="dropdown">
+                        <option>中文(普通话)</option>
+                        <option>日语</option>
+                        <option>英语</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label class="control-label"><input type="checkbox">语音处理优化发音</label>
+                </div>
+            </div>
+            
+            <div class="panel-section">
+                <div class="panel-title">声线</div>
+                <div class="control-group">
+                    <label class="control-label">预设</label>
+                    <select class="dropdown">
+                        <option>N/A</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="panel-section">
+                <div class="panel-title">参数</div>
+                <div class="control-group">
+                    <label class="control-label">响度: 0.00 dB</label>
+                    <input type="range" class="slider" min="-40" max="40" value="0">
+                </div>
+                <div class="control-group">
+                    <label class="control-label">张力: 0.000</label>
+                    <input type="range" class="slider" min="0" max="1" step="0.001" value="0">
+                </div>
+                <div class="control-group">
+                    <label class="control-label">气息: 0.000</label>
+                    <input type="range" class="slider" min="0" max="1" step="0.001" value="0">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 引入编辑器主逻辑 -->
+    <script src="main.js"></script>
+    
+    <!-- 错误处理脚本 -->
+    <script>
+        // 全局错误处理
+        window.addEventListener('error', function(e) {
+            console.error('发生错误:', e.error);
+            alert('编辑器发生错误，请刷新页面重试。\n错误信息: ' + e.error.message);
+        });
+        
+        // 未捕获的Promise错误处理
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('未捕获的Promise错误:', e.reason);
+            alert('编辑器发生异步错误，请刷新页面重试。\n错误信息: ' + e.reason.message);
+        });
+        
+        // 检查浏览器兼容性
+        function checkBrowserCompatibility() {
+            const features = [
+                'querySelector' in document,
+                'addEventListener' in window,
+                'classList' in document.createElement('div'),
+                'forEach' in Array.prototype
+            ];
+            
+            if (features.some(feature => !feature)) {
+                alert('您的浏览器版本过旧，可能无法正常运行畅声编辑器。\n建议使用Chrome 60+、Firefox 55+、Edge 79+等现代浏览器。');
+            }
+        }
+        
+        // 页面加载完成后检查兼容性
+        document.addEventListener('DOMContentLoaded', checkBrowserCompatibility);
+    </script>
+</body>
+</html>
