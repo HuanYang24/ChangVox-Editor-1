@@ -1,0 +1,33 @@
+{
+  "name": "changsheng-editor",
+  "version": "0.1.0",
+  "description": "畅声 - 虚拟歌声编辑器",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "web-audio-api": "^0.2.2"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/changsheng-editor.git"
+  },
+  "keywords": [
+    "虚拟歌手",
+    "歌声合成",
+    "UTAU",
+    "编辑器"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/changsheng-editor/issues"
+  },
+  "homepage": "https://github.com/yourusername/changsheng-editor#readme"
+}
